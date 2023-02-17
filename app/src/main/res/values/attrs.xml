@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HeaderBar">
+        <attr name="title" format="string" />
+        <attr name="title_text_color" format="reference|color" />
+        <attr name="bg_color" format="reference|color" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomLoadingView">
+        <attr name="loading_view_size" format="dimension" />
+        <attr name="android:color" />
+    </declare-styleable>
+
+</resources>

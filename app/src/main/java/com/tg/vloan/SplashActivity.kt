@@ -1,14 +1,12 @@
 package com.tg.vloan
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.tg.vloan.base.BaseActivity
 import com.tg.vloan.databinding.ActivitySplashBinding
+import com.tg.vloan.utils.safeLaunch
 import com.tg.vloan.viewmodel.SplashViewModel
-import kotlinx.coroutines.launch
 
 class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     private val viewModel by viewModels<SplashViewModel>()
@@ -21,10 +19,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         binding?.let { it->
             it.button.setOnClickListener {
                 viewModel.loadData()
+                lifecycleScope
             }
         }
     }
 
     override fun initData() {
+        safeLaunch {
+
+        }
+
     }
 }

@@ -3,8 +3,9 @@ package com.tg.vloan.base
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import me.yokeyword.fragmentation.SupportActivity
 
-abstract class BaseActivity<V : ViewBinding> :AppCompatActivity() {
+abstract class BaseActivity<V : ViewBinding> : SupportActivity() {
     var binding:V?=null
 //    val viewModel by viewModels<viewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
