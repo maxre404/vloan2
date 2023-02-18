@@ -7,6 +7,7 @@ object ApiPath {
 //    const val getBaseUrl = "http://nweaxom.cn/d3019.json/" //
     const val getBaseUrl = "http://gtm-cn-x0r337dx50o.gtm-a3b4.com/" //
     const val getBaseBacUrl = "https://jsonrequest-by.oss-cn-hangzhou.aliyuncs.com/d3019.json"
+    const val pushUrl = "dagejietiaobei";
     const val isRenewUrl = "isRenewUrl" //是否从新获取json文件域名 (0是不用重新获取，1是要重新获取)
     const val getIsCheck = "getIsCheck" //获取相关配置
     const val getAppInfo = "getAppInfo" //获取协议的公司信息以及邮箱

@@ -18,16 +18,15 @@ import okhttp3.Response;
 public class UrlParamInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
-        LogUtil.log("bbbbbbb");
         HttpUrl paramsUrl = chain.request().url().newBuilder()
                 .addQueryParameter("main_channel", "1")
                 .addQueryParameter("t", String.valueOf(System.currentTimeMillis()))
                 .addQueryParameter("app_version", DeviceUtils.getAppVersion())
                 .addQueryParameter("platform", "1")
                 .addQueryParameter("ming", "1")
+                .addQueryParameter("push_str", ApiPath.pushUrl)
                 .addQueryParameter("user_id", GlobalConfig.getUserId()).build();
         Request.Builder builder = chain.request().newBuilder().url(paramsUrl);
-        LogUtil.log("bbbbb");
         return chain.proceed(builder.build());
     }
 }

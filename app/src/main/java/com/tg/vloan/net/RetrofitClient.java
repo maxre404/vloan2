@@ -2,6 +2,7 @@ package com.tg.vloan.net;
 
 
 import com.google.gson.GsonBuilder;
+import com.localebro.okhttpprofiler.OkHttpProfilerInterceptor;
 import com.tg.vloan.config.Constants;
 import com.tg.vloan.config.HeaderInterceptor;
 
@@ -42,6 +43,7 @@ public class RetrofitClient {
                 .writeTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
                 .addInterceptor(new LogInterceptor())
                 .addInterceptor(new HeaderInterceptor())
+                .addInterceptor(new OkHttpProfilerInterceptor())
                 .addInterceptor(new UrlParamInterceptor());
 
         mRetrofit = new Retrofit.Builder()
