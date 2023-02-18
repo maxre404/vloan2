@@ -36,4 +36,10 @@
     <string name="base_forget_pwd">忘记密码?</string>
     <string name="base_agree_policy_few_tip">需要同意《用户协议》《隐私权政策》</string>
     <string name="base_home_rate">年利率7.2%，贷款期限1~36个月</string>
+    <string name="关于我们">关于我们</string>
+    <string name="注册协议">注册协议</string>
+    <string name="隐私协议">隐私协议</string>
+    <string name="客服邮箱">客服邮箱</string>
+    <string name="个性化推送">个性化推送</string>
+    <string name="注销账号">注销账号</string>
 </resources>

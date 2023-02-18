@@ -1,26 +1,26 @@
 [
   {
     "navTitle": "base_home",
-    "titleColorSelected": "colorPrimary",
-    "titleColorUnselect": "color_999999",
-    "navIconSelected": "nnxvew_lfeax",
-    "navIconUnselect": "nfdjw_lfdsa",
-    "pageClassName": "com.ofeiwjnxhaw.qyehhszfews.fragment.HomeFragment"
+    "titleColorSelected": "tab_selected",
+    "titleColorUnselect": "color_9da1b5",
+    "navIconSelected": "icon_home_selected",
+    "navIconUnselect": "icon_home_unselect",
+    "pageClassName": "com.tg.vloan.ui.fragment.HomeFragment"
   },
   {
     "navTitle": "base_product",
-    "titleColorSelected": "colorPrimary",
-    "titleColorUnselect": "color_999999",
-    "navIconSelected": "xfejw_lfdkmscx",
-    "navIconUnselect": "mvjsjew_ofdoisqe",
-    "pageClassName": "com.ofeiwjnxhaw.qyehhszfews.fragment.ProductFragment"
+    "titleColorSelected": "tab_selected",
+    "titleColorUnselect": "color_9da1b5",
+    "navIconSelected": "icon_product_selected",
+    "navIconUnselect": "icon_product_unselect",
+    "pageClassName": "com.tg.vloan.ui.fragment.ProductFragment"
   },
   {
     "navTitle": "base_mine",
-    "titleColorSelected": "colorPrimary",
-    "titleColorUnselect": "color_999999",
-    "navIconSelected": "xmfjew_lfdsaer",
-    "navIconUnselect": "nxnvwe_lflws",
-    "pageClassName": "com.ofeiwjnxhaw.qyehhszfews.fragment.MineFragment"
+    "titleColorSelected": "tab_selected",
+    "titleColorUnselect": "color_9da1b5",
+    "navIconSelected": "icon_mine_selected",
+    "navIconUnselect": "icon_mine_unselect",
+    "pageClassName": "com.tg.vloan.ui.fragment.MineFragment"
   }
 ]

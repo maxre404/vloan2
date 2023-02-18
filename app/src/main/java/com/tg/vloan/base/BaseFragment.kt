@@ -9,7 +9,7 @@ import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<V : ViewBinding> :Fragment() {
     var binding:V?=null
-    abstract fun createBinding():ViewBinding?
+    abstract fun generateBinding():ViewBinding?
 
     abstract fun initView()
 
@@ -20,10 +20,13 @@ abstract class BaseFragment<V : ViewBinding> :Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = createBinding() as V?
-        initView()
+        binding = generateBinding() as V?
         initData()
+        initView()
+        initSubscription()
         return binding?.root
     }
+
+    abstract fun initSubscription()
 
 }

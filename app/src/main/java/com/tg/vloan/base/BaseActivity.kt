@@ -8,7 +8,6 @@ import android.os.Looper
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.viewbinding.ViewBinding
-import com.drake.statusbar.immersive
 import com.gyf.barlibrary.ImmersionBar
 import com.tg.vloan.bean.IsCheckBean
 import com.tg.vloan.config.ConfigKeys
@@ -29,11 +28,14 @@ abstract class BaseActivity<V : ViewBinding> : SupportActivity() {
         binding = generateBinding() as V?
         setSecurity()
         setContentView(binding?.root)
-        initView()
         initData()
+        initView()
         initSubscription()
-        immersive()
-//        initImmersionBar()
+//        immersive()
+        initImmersionBar()
+        if (isImmersionBarEnabled() && setStatusBarView() != 0) {
+            ImmersionBar.setStatusBarView(this, findViewById(setStatusBarView()))
+        }
     }
 
     abstract fun initSubscription()
@@ -62,7 +64,7 @@ abstract class BaseActivity<V : ViewBinding> : SupportActivity() {
 
     open fun initImmersionBar() {
         ImmersionBar.with(this).navigationBarColorInt(Color.WHITE)
-            .statusBarDarkFont(true).init()
+            .statusBarDarkFont(false).init()
     }
 
     open fun showToast(msg: String?) {

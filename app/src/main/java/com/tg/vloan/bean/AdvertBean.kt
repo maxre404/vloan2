@@ -1,135 +1,37 @@
-package com.tg.vloan.bean;
+package com.tg.vloan.bean
 
-import com.google.gson.annotations.SerializedName;
+import com.google.gson.annotations.SerializedName
 
 /**
  * Created by frcx-hb on 2022/12/3 18:37.
  */
-public class AdvertBean {
-    
-    private String id;
-    
-    private String icon;
-    
-    private String title;
-    
-    private String desc;
-    
-    private String label;
+class AdvertBean {
+    var id: String? = null
+    var icon: String? = null
+    var title: String? = null
+    var desc: String? = null
+    var label: String? = null
 
     @SerializedName("min_price")
-    private String minPrice;
+    var minPrice: String? = null
 
     @SerializedName("max_price")
-    private String maxPrice;
+    var maxPrice: String? = null
 
     @SerializedName("apple_count")
-    private String appleCount;
+    var appleCount: String? = null
 
     @SerializedName("success_rate")
-    private String successRate;
+    var successRate: String? = null
 
     @SerializedName("day_rate")
-    private String dayRate;
-    
-    private String url;
+    var dayRate: String? = null
+    var url: String? = null
 
     @SerializedName("is_vip")
-    private String isVip;
+    var isVip: String? = null
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getLabel() {
-        return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getMinPrice() {
-        return minPrice;
-    }
-
-    public void setMinPrice(String minPrice) {
-        this.minPrice = minPrice;
-    }
-
-    public String getMaxPrice() {
-        return maxPrice;
-    }
-
-    public void setMaxPrice(String maxPrice) {
-        this.maxPrice = maxPrice;
-    }
-
-    public String getAppleCount() {
-        return appleCount;
-    }
-
-    public void setAppleCount(String appleCount) {
-        this.appleCount = appleCount;
-    }
-
-    public String getSuccessRate() {
-        return successRate;
-    }
-
-    public void setSuccessRate(String successRate) {
-        this.successRate = successRate;
-    }
-
-    public String getDayRate() {
-        return dayRate;
-    }
-
-    public void setDayRate(String dayRate) {
-        this.dayRate = dayRate;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getIsVip() {
-        return isVip;
-    }
-
-    public void setIsVip(String isVip) {
-        this.isVip = isVip;
-    }
+    //1正常产品不用加APP名字
+    @SerializedName("is_audit")
+    var isAudit: Int = 0
 }

@@ -12,6 +12,7 @@ import java.lang.ref.WeakReference
 class App:Application() {
     override fun onCreate() {
         super.onCreate()
+        application=this
         registerActivityLifecycleCallbacks(lifecycleCallbacks)
         GlobalConfig.init(this)
         if (SPConfig.getBoolean(ConfigKeys.SP_AGREE_POLICY, false)) {
@@ -42,5 +43,6 @@ class App:Application() {
     }
     companion object{
         var mCurrentActivity: WeakReference<Activity>? = null
+        var application:Application?=null
     }
 }

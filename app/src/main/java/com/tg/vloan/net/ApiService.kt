@@ -42,15 +42,15 @@ interface ApiService {
     @POST(ApiPath.sendCode)
     suspend fun sendCode(@Body codeRequest: CodeRequest?): BaseResponse<RenewUrlBean?>?
 
-    @get:POST(ApiPath.advertList)
-    val advertList: Observable<BaseResponse<List<AdvertBean?>?>?>?
+    @POST(ApiPath.advertList)
+    suspend fun  getAdvertList(): BaseResponse<List<AdvertBean?>?>?
 
     @POST(ApiPath.click)
-    fun click(@Body clickRequest: ClickRequest?): Observable<ResponseBody?>?
+    suspend fun click(@Body clickRequest: ClickRequest?): ResponseBody?
 
     @POST(ApiPath.advertRand)
     fun advertRand(): Observable<BaseResponse<AdvertBean?>?>?
 
     @POST(ApiPath.download)
-    fun download(@Body downloadRequest: DownloadRequest?): Observable<Void?>?
+    suspend fun download(@Body downloadRequest: DownloadRequest?): Void?
 }

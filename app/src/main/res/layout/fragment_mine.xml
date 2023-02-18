@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/icon_bg_product">
+
+
+        <View
+            android:id="@+id/v_center"
+            android:layout_width="@dimen/dp_0"
+            android:layout_height="@dimen/dp_0"
+            android:layout_centerInParent="true" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:id="@+id/status_bar_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_0" />
+
+                <LinearLayout
+                    android:id="@+id/rlt_user"
+                    android:layout_width="@dimen/dp_200"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dp_60"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.tg.vloan.view.RoundAngleImageView
+                        android:id="@+id/iv_avatar"
+                        android:layout_width="@dimen/dp_58"
+                        android:layout_height="@dimen/dp_58"
+                        android:layout_centerVertical="true"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/icon_avatar" />
+
+                    <TextView
+                        android:id="@+id/tv_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:layout_toEndOf="@id/iv_avatar"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/sp_13"
+                        tools:text="135****1125" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lyt_btn_container_g"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rlt_user"
+                    android:layout_marginHorizontal="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_36"
+                    android:visibility="visible">
+                    <!--关于我们-->
+                    <LinearLayout
+                        android:id="@+id/lytAboutUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/iv_register_g"
+                            android:layout_width="@dimen/dp_43"
+                            android:layout_height="@dimen/dp_43"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_customer" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dp_11"
+                            android:text="@string/关于我们"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+
+                    </LinearLayout>
+                    <!--注册协议-->
+                    <LinearLayout
+                        android:id="@+id/lytRegisterPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_43"
+                            android:layout_height="@dimen/dp_43"
+                            android:src="@mipmap/icon_register_policy" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dp_11"
+                            android:text="@string/注册协议"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+                    </LinearLayout>
+                    <!--隐私协议-->
+                    <LinearLayout
+                        android:id="@+id/lytPrivacyPolicy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_43"
+                            android:layout_height="@dimen/dp_43"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_complaint" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dp_11"
+                            android:text="@string/隐私协议"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/sp_12" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_line1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0_5"
+                        android:layout_marginTop="@dimen/dp_18"
+                        android:background="#999999"
+                        app:layout_constraintTop_toBottomOf="@+id/lytAboutUs" />
+                    <!--客服邮箱-->
+                    <LinearLayout
+                        android:id="@+id/lytFeedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1"
+                            android:text="@string/客服邮箱"
+                            android:textColor="@color/mine_text"
+                            android:textSize="@dimen/sp_12" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_14"
+                            android:layout_height="@dimen/dp_14"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_nav_right"
+                            app:tint="@color/white" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_line2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0_5"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:background="#999999"
+                        app:layout_constraintTop_toBottomOf="@+id/lytFeedback" />
+                    <!--个性化推送-->
+                    <LinearLayout
+                        android:id="@+id/lytPersonalizePush"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line2">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1"
+                            android:text="@string/个性化推送"
+                            android:textColor="@color/mine_text"
+                            android:textSize="@dimen/sp_12" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_14"
+                            android:layout_height="@dimen/dp_14"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_nav_right"
+                            app:tint="@color/white" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_line3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0_5"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:background="#999999"
+                        app:layout_constraintTop_toBottomOf="@+id/lytPersonalizePush" />
+                    <!--注销账户-->
+                    <LinearLayout
+                        android:id="@+id/lytUnregister"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line3">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1"
+                            android:text="注销账户"
+                            android:textColor="@color/mine_text"
+                            android:textSize="@dimen/sp_12" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_14"
+                            android:layout_height="@dimen/dp_14"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_nav_right"
+                            app:tint="@color/white" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/view_line4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_0_5"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:background="#999999"
+                        app:layout_constraintTop_toBottomOf="@+id/lytUnregister" />
+                    <!--退出登录-->
+                    <LinearLayout
+                        android:id="@+id/tvLogout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_14"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/view_line4">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_weight="1"
+                            android:text="退出登录"
+                            android:textColor="@color/mine_text"
+                            android:textSize="@dimen/sp_12" />
+
+                        <ImageView
+                            android:layout_width="@dimen/dp_14"
+                            android:layout_height="@dimen/dp_14"
+                            android:layout_centerVertical="true"
+                            android:src="@mipmap/icon_nav_right"
+                            app:tint="@color/white" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>

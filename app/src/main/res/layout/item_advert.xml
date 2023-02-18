@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@mipmap/icon_bg_product_item"
+        android:paddingHorizontal="@dimen/dp_6">
+
+        <ImageView
+            android:id="@+id/iv_advert"
+            android:layout_width="@dimen/dp_25"
+            android:layout_height="@dimen/dp_25"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="@+id/tv_max_price"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_max_price"
+            app:layout_constraintEnd_toEndOf="@+id/tv_advert"
+            app:layout_constraintStart_toStartOf="@+id/tv_advert"
+            tools:src="@mipmap/icon_email"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/tv_advert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="产品名称"
+            android:layout_marginTop="@dimen/dp_5"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp_10"
+            android:layout_marginBottom="@dimen/dp_11"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_advert"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/tv_max_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_15"
+            android:layout_marginTop="@dimen/dp_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="200,000"
+            android:layout_centerHorizontal="true"
+            android:textColor="#F74F08"
+            android:textSize="27sp" />
+
+        <TextView
+            android:id="@+id/tv_max_price_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintTop_toTopOf="@+id/tv_advert"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_advert"
+            app:layout_constraintStart_toStartOf="@+id/tv_max_price"
+            app:layout_constraintEnd_toEndOf="@+id/tv_max_price"
+            android:text="额度高至"
+            android:visibility="gone"
+            android:textColor="#9f9f9f"
+            android:textSize="@dimen/sp_8" />
+        <TextView
+            android:id="@+id/tv_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintTop_toTopOf="@+id/tv_advert"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_advert"
+            app:layout_constraintStart_toStartOf="@+id/tv_max_price"
+            app:layout_constraintEnd_toEndOf="@+id/tv_max_price"
+            android:text="7.2%"
+            android:textColor="#333333"
+            android:textSize="@dimen/sp_8" />
+
+        <TextView
+            android:id="@+id/tv_rate_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tv_rate"
+            app:layout_constraintTop_toTopOf="@+id/tv_max_price_txt"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_max_price_txt"
+            app:layout_constraintStart_toStartOf="@+id/tv_rate"
+            app:layout_constraintEnd_toEndOf="@+id/tv_rate"
+            android:text="年利率 "
+            android:visibility="gone"
+            android:textColor="#9f9f9f"
+            android:textSize="@dimen/sp_14" />
+        <TextView
+            android:id="@+id/tv_apply_now"
+            android:layout_width="@dimen/dp_12"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="申请"
+            android:layout_marginEnd="@dimen/dp_7"
+            app:layout_constraintTop_toBottomOf="@+id/tv_max_price_txt"
+            android:textColor="#8324E0 "
+            android:textSize="@dimen/sp_12"
+            android:textStyle="bold" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
