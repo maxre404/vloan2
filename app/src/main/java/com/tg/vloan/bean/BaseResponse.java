@@ -35,7 +35,7 @@ public class BaseResponse<T> {
     }
 
     public boolean isSuccess(){
-        return "200".equals(code);
+        return "200".equals(code)||"1".equals(code);
     }
     public static <T> BaseResponse<T> generateFailResponse(String errorMsg){
         BaseResponse response = new BaseResponse<T>();

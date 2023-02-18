@@ -1,6 +1,7 @@
 package com.tg.vloan.base
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -13,7 +14,9 @@ import com.tg.vloan.bean.IsCheckBean
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.GlobalConfig
 import com.tg.vloan.ui.dialog.LoadingDialog
+import com.tg.vloan.utils.LogUtil
 import me.yokeyword.fragmentation.SupportActivity
+
 
 abstract class BaseActivity<V : ViewBinding> : SupportActivity() {
     var binding: V? = null
@@ -63,7 +66,12 @@ abstract class BaseActivity<V : ViewBinding> : SupportActivity() {
     }
 
     open fun showToast(msg: String?) {
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+        try {
+            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+        } catch (e:Exception){
+            e.printStackTrace()
+            LogUtil.log("打印异常:${e.message}")
+        }
     }
     open fun showLoading() {
         if (loadingDialog == null) {

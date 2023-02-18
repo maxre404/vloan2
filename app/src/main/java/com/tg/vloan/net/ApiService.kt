@@ -37,10 +37,10 @@ interface ApiService {
     suspend fun isCheck(): BaseResponse<IsCheckBean?>?
 
     @POST(ApiPath.login)
-    fun login(@Body loginRequest: LoginRequest?): Observable<BaseResponse<UserBean?>?>?
+    suspend fun login(@Body loginRequest: LoginRequest?): BaseResponse<UserBean?>?
 
     @POST(ApiPath.sendCode)
-    fun sendCode(@Body codeRequest: CodeRequest?): Observable<BaseResponse<RenewUrlBean?>?>?
+    suspend fun sendCode(@Body codeRequest: CodeRequest?): BaseResponse<RenewUrlBean?>?
 
     @get:POST(ApiPath.advertList)
     val advertList: Observable<BaseResponse<List<AdvertBean?>?>?>?

@@ -7,6 +7,7 @@ import android.text.method.LinkMovementMethod
 import android.text.style.ClickableSpan
 import android.text.style.ForegroundColorSpan
 import android.view.View
+import androidx.activity.viewModels
 import androidx.viewbinding.ViewBinding
 import com.tg.vloan.R
 import com.tg.vloan.base.BaseActivity
@@ -15,12 +16,18 @@ import com.tg.vloan.callback.SimpleTextWatcher
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.Constants
 import com.tg.vloan.config.GlobalConfig
+import com.tg.vloan.config.SPConfig
 import com.tg.vloan.databinding.ActivityLoginBinding
+import com.tg.vloan.dto.CodeRequest
+import com.tg.vloan.dto.LoginRequest
+import com.tg.vloan.utils.LogUtil
 import com.tg.vloan.utils.MyCountDownTimer
 import com.tg.vloan.utils.ResourceUtils
+import com.tg.vloan.viewmodel.LoginViewModel
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>() {
 
+    private val viewModel by viewModels<LoginViewModel>()
 
     companion object {
         fun startActivity(context: Context) {
@@ -117,61 +124,28 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>() {
      * 发送验证码
      */
     private fun  sendCode(type:String) {
-//        safeLaunch {
-//            val codeRequest = CodeRequest(getPhone(), type)
-//            var sendCodeStr= Post<String>(Api.sendCode){
-//                param("phone",codeRequest.phone)
-//                param("type",codeRequest.type)
-//                //json()
-//            }.await()
-//            var sendCodeResponse: BaseResponse<RenewUrlBean> = Gson().fromJson(sendCodeStr,BaseResponse::class.java) as BaseResponse<RenewUrlBean>
-//            //val data: RenewUrlBean = sendCodeResponse.getData()
-//            var msg = if (sendCodeResponse.data == null) {
-//                sendCodeResponse.msg
-//            } else {
-//                sendCodeResponse.data!!.msg
-//            }
-//            showToast(msg!!)
-//            onSendCodeSuccess()
-//        }.catch {
-//            showToast(it.message.toString())
-//        }
+        val codeRequest = CodeRequest(getPhone(), type)
+        viewModel.sendCode(codeRequest)
     }
 
     /**
      * 登录
      */
     private fun login() {
-//        if (TextUtils.isEmpty(getPhone())) {
-//            showToast(ResourceUtils.getString(R.string.base_input_phone_tip))
-//            return
-//        }
-//        if (TextUtils.isEmpty(getCode())) {
-//            showToast(ResourceUtils.getString(R.string.base_input_captcha_tip))
-//            return
-//        }
-//        if (!binding!!.ivCheck.isSelected()) {
-//            showToast(ResourceUtils.getString(R.string.base_agree_policy_tip))
-//            return
-//        }
-//        scopeDialog {
-////            RequestBody: {"code":"1234","oaid":"8d9410df-8b94-4173-b24b-2e4f114daafb","phone":"18800001111","type":"oaid"}
-//            val loginRequest = LoginRequest(getPhone(), getCode())
-//            var loginResponse = Post<BaseResponse<UserBean>>(Api.login){
-//                param("phone" , loginRequest.phone)
-//                param("code",loginRequest.code)
-//                param("oaid",loginRequest.oaid)
-//                param("type",loginRequest.type)
-//            }.await()
-//            if (loginResponse.data == null){
-//                showToast(loginResponse.msg);
-//            }else{
-//                GlobalConfig.setUserId(loginResponse.data.getUserId())
-//                showToast(loginResponse.data.msg)
-//            }
-//            SPConfig.putString(ConfigKeys.SP_PHONE, getPhone())
-//            onLoginSuccess()
-//        }
+        if (TextUtils.isEmpty(getPhone())) {
+            showToast(ResourceUtils.getString(R.string.base_input_phone_tip))
+            return
+        }
+        if (TextUtils.isEmpty(getCode())) {
+            showToast(ResourceUtils.getString(R.string.base_input_captcha_tip))
+            return
+        }
+        if (!binding!!.ivCheck.isSelected) {
+            showToast(ResourceUtils.getString(R.string.base_agree_policy_few_tip))
+            return
+        }
+        val loginRequest = LoginRequest(getPhone(), getCode())
+        viewModel.login(loginRequest)
     }
 
     private fun onLoginSuccess() {
@@ -179,7 +153,8 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>() {
         finish()
     }
 
-    fun onSendCodeSuccess() {
+    private fun onSendCodeSuccess() {
+        timer?.cancel()
         if (timer == null) {
             timer = MyCountDownTimer(
                 Constants.SEND_CAPTCHA_COUNT_DOWN_TIME.toLong(),
@@ -192,11 +167,11 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>() {
         return R.id.status_bar_view
     }
 
-    fun getPhone(): String? {
+    private fun getPhone(): String? {
         return binding?.etAccount?.text.toString()
     }
 
-    fun getCode(): String? {
+    private fun getCode(): String? {
         return binding?.etCode?.text.toString()
     }
 
@@ -216,5 +191,23 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>() {
     }
 
     override fun initData() {
+        viewModel.loginLiveData.observe(this){response->
+            if (response.isSuccess){
+                GlobalConfig.setUserId(response.data?.userId)
+                showToast(response.data?.msg)
+                SPConfig.putString(ConfigKeys.SP_PHONE, getPhone())
+                onLoginSuccess()
+            }else{
+                showToast(response.msg)
+            }
+        }
+        viewModel.verificationCodeLiveData.observe(this){response->
+            if (response.isSuccess){
+                showToast(response.msg)
+                onSendCodeSuccess()
+            }else{
+                showToast(response.msg)
+            }
+        }
     }
 }
