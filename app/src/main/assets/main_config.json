@@ -1,0 +1,26 @@
+[
+  {
+    "navTitle": "base_home",
+    "titleColorSelected": "colorPrimary",
+    "titleColorUnselect": "color_999999",
+    "navIconSelected": "nnxvew_lfeax",
+    "navIconUnselect": "nfdjw_lfdsa",
+    "pageClassName": "com.ofeiwjnxhaw.qyehhszfews.fragment.HomeFragment"
+  },
+  {
+    "navTitle": "base_product",
+    "titleColorSelected": "colorPrimary",
+    "titleColorUnselect": "color_999999",
+    "navIconSelected": "xfejw_lfdkmscx",
+    "navIconUnselect": "mvjsjew_ofdoisqe",
+    "pageClassName": "com.ofeiwjnxhaw.qyehhszfews.fragment.ProductFragment"
+  },
+  {
+    "navTitle": "base_mine",
+    "titleColorSelected": "colorPrimary",
+    "titleColorUnselect": "color_999999",
+    "navIconSelected": "xmfjew_lfdsaer",
+    "navIconUnselect": "nxnvwe_lflws",
+    "pageClassName": "com.ofeiwjnxhaw.qyehhszfews.fragment.MineFragment"
+  }
+]

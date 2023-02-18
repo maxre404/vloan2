@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lyt_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_shape_dialog_corner_6dp"
+    android:maxWidth="@dimen/dp_152"
+    android:maxHeight="@dimen/dp_108"
+    android:orientation="vertical"
+    android:paddingVertical="@dimen/dp_15"
+    android:paddingHorizontal="@dimen/dp_30">
+
+    <RelativeLayout
+        android:id="@+id/rlt_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/dp_12"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16"
+        tools:text="成功" />
+
+</LinearLayout>

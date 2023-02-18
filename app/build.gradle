@@ -68,6 +68,8 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     implementation 'com.victor:lib:1.0.4'
     implementation 'com.localebro:okhttpprofiler:1.0.8'
+    implementation 'com.github.liangjingkanji:StatusBar:2.0.2'
+
 
 
 

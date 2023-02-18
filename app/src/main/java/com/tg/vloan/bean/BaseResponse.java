@@ -33,4 +33,15 @@ public class BaseResponse<T> {
     public void setData(T data) {
         this.data = data;
     }
+
+    public boolean isSuccess(){
+        return "200".equals(code);
+    }
+    public static <T> BaseResponse<T> generateFailResponse(String errorMsg){
+        BaseResponse response = new BaseResponse<T>();
+        response.code = "-99";
+        response.data = null;
+        response.msg = errorMsg;
+        return response;
+    }
 }

@@ -1,22 +1,28 @@
 package com.tg.vloan.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import com.tg.vloan.base.BaseViewModel
-import com.tg.vloan.net.ApiPath
-import com.tg.vloan.utils.LogUtil
+import com.tg.vloan.bean.BaseResponse
+import com.tg.vloan.bean.IsCheckBean
+import com.tg.vloan.config.ConfigKeys
+import com.tg.vloan.config.GlobalConfig
 import com.tg.vloan.utils.safeLaunch
 
-class SplashViewModel:BaseViewModel() {
+class SplashViewModel : BaseViewModel() {
+    var isCheckLiveData: MutableLiveData<BaseResponse<IsCheckBean?>> = MutableLiveData()
 
-    fun loadData(){
+    fun checkUser() {
         safeLaunch {
-//            var result = apiService?.getUrl(ApiPath.getBaseUrl)
-//            LogUtil.log("获取结果:${result}")
-            var result = apiService?.getAppInfo()
-            LogUtil.log("获取结果:${result}")
+            var appInfoBean = apiService?.getAppInfo()
+            GlobalConfig.putConfig(ConfigKeys.APP_INFO, appInfoBean?.data)
+            var isCheckResponse = apiService?.isCheck()
+            GlobalConfig.putConfig(ConfigKeys.IS_CHECK_BEAN, isCheckResponse?.data)
+            isCheckLiveData.postValue(isCheckResponse)
         }.catch {
             it.printStackTrace()
-            LogUtil.log("打印异常:${it.message}")
+            isCheckLiveData.postValue(BaseResponse.generateFailResponse<IsCheckBean>(it.message))
         }
     }
+
 
 }

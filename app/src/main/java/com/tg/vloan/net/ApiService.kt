@@ -33,8 +33,8 @@ interface ApiService {
     @POST(ApiPath.getAppInfo)
     suspend fun getAppInfo(): BaseResponse<AppInfoBean?>?
 
-    @get:POST(ApiPath.getIsCheck)
-    val isCheck: Observable<BaseResponse<IsCheckBean?>?>?
+    @POST(ApiPath.getIsCheck)
+    suspend fun isCheck(): BaseResponse<IsCheckBean?>?
 
     @POST(ApiPath.login)
     fun login(@Body loginRequest: LoginRequest?): Observable<BaseResponse<UserBean?>?>?
