@@ -25,14 +25,14 @@ import com.tg.vloan.utils.Utils
 import java.io.File
 import java.util.*
 
-class WebViewActivity2 : BaseActivity<ActivityWebview2Binding>() {
+class WebViewActivity : BaseActivity<ActivityWebview2Binding>() {
     private val URL = "url"
     private val TITLE = "title"
 
 
     companion object {
         fun gotoActivity(context: Context?, url:String?, title:String?,isAudio:Int) {
-            val starter = Intent(context, WebViewActivity2::class.java)
+            val starter = Intent(context, WebViewActivity::class.java)
             starter.putExtra(Constants.URL, url)
             starter.putExtra(Constants.TITLE, title)
             starter.putExtra(Constants.IS_AUDIO, isAudio)

@@ -1,7 +1,6 @@
 package com.tg.vloan.ui.fragment
 
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.viewbinding.ViewBinding
 import com.drake.brv.utils.linear
 import com.drake.brv.utils.setup
@@ -11,7 +10,7 @@ import com.tg.vloan.bean.AdvertBean
 import com.tg.vloan.databinding.FragmentHomeBinding
 import com.tg.vloan.databinding.ItemAdvertBinding
 import com.tg.vloan.dto.ClickRequest
-import com.tg.vloan.ui.activity.WebViewActivity2
+import com.tg.vloan.ui.activity.WebViewActivity
 import com.tg.vloan.utils.EmptyUtils
 import com.tg.vloan.utils.ImageLoadUtils
 import com.tg.vloan.viewmodel.HomeViewModel
@@ -46,7 +45,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>() {
                         itemBinding!!.root.setOnClickListener { v ->
                             val clickRequest = ClickRequest(item.id, "1")
                             viewModel?.click(clickRequest)
-                            WebViewActivity2.gotoActivity(context, item.url, item.title,item.isAudit)
+                            WebViewActivity.gotoActivity(context, item.url, item.title,item.isAudit)
                         }
                     }
                 }?.models = response.data
