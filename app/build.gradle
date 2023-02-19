@@ -17,10 +17,39 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file("../keystore/ccglt.jks")
+            keyAlias "ccglt_alias"
+            keyPassword "123456"
+            storePassword "123456"
+            v1SigningEnabled true
+        }
+        release {
+            storeFile file("../keystore/ccglt.jks")
+            keyAlias "ccglt_alias"
+            keyPassword "123456"
+            storePassword "123456"
+            v1SigningEnabled true
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            zipAlignEnabled false  //压缩优化
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            zipAlignEnabled true  //压缩优化
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -30,9 +59,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-//    viewBinding {
-//        enabled = true
-//    }
     buildFeatures {
         viewBinding true
         dataBinding true
