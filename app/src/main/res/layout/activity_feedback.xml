@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_main_bg2"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/status_bar_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0" />
+
+
+    <com.tg.vloan.ui.view.HeaderBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bg_color="@color/color_main_bg2"
+        app:title="@string/base_user_feedback" />
+
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_15"
+        android:background="@drawable/bg_shape_stroke"
+        android:hint="@string/base_feedback_hint"
+        android:maxLength="200"
+        android:minHeight="@dimen/dp_120"
+        android:padding="@dimen/dp_12"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="@dimen/dp_9"
+        android:layout_marginEnd="@dimen/dp_24"
+        android:text="0-200字"
+        android:textColor="#999999"
+        android:textSize="@dimen/sp_12" />
+
+    <TextView
+        android:id="@+id/tv_summit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginHorizontal="@dimen/dp_24"
+        android:layout_marginTop="@dimen/dp_48"
+        android:background="@drawable/bg_btn_theme_r21"
+        android:gravity="center"
+        android:text="@string/base_submit"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_17" />
+</LinearLayout>
