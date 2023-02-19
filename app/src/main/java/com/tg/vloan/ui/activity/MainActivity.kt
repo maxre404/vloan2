@@ -10,7 +10,7 @@ import com.tg.vloan.bean.MainConfig
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.Constants
 import com.tg.vloan.config.GlobalConfig
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import com.tg.vloan.databinding.ActivityMainBinding
 import com.tg.vloan.dto.DownloadRequest
 import com.tg.vloan.ui.adapter.MainPageAdapter
@@ -76,7 +76,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         return mainNavView
     }
     private fun downloadReport() {
-        val isDownloadReport = SPConfig.getBoolean(ConfigKeys.SP_IS_DOWNLOAD_REPORT, false)
+        val isDownloadReport = StorageConfig.getBoolean(ConfigKeys.SP_IS_DOWNLOAD_REPORT, false)
         if (isDownloadReport) {
             return
         }

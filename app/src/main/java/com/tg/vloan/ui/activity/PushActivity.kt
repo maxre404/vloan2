@@ -6,7 +6,7 @@ import androidx.viewbinding.ViewBinding
 import com.tg.vloan.R
 import com.tg.vloan.base.BaseActivity
 import com.tg.vloan.config.ConfigKeys
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import com.tg.vloan.databinding.ActivityPushBinding
 
 class PushActivity : BaseActivity<ActivityPushBinding>() {
@@ -21,10 +21,10 @@ class PushActivity : BaseActivity<ActivityPushBinding>() {
     }
 
     override fun initData() {
-        val isNotify = SPConfig.getBoolean(ConfigKeys.SP_IS_NOTIFY, true)
+        val isNotify = StorageConfig.getBoolean(ConfigKeys.SP_IS_NOTIFY, true)
         binding!!.cbPush.isChecked = isNotify
         binding!!.cbPush.setOnCheckedChangeListener { buttonView, isChecked ->
-            SPConfig.putBoolean(
+            StorageConfig.putBoolean(
                 ConfigKeys.SP_IS_NOTIFY,
                 isChecked
             )

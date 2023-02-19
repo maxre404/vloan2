@@ -7,7 +7,7 @@ import com.tg.vloan.base.BaseDialogFragment
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.Constants
 import com.tg.vloan.config.GlobalConfig
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import com.tg.vloan.databinding.DialogPolicyBinding
 import com.tg.vloan.ui.activity.PolicyActivity
 
@@ -36,7 +36,7 @@ class PolicyDialog : BaseDialogFragment<DialogPolicyBinding>(){
     }
 
     private fun onAgree() {
-        SPConfig.putBoolean(ConfigKeys.SP_AGREE_POLICY, true)
+        StorageConfig.putBoolean(ConfigKeys.SP_AGREE_POLICY, true)
         DeviceIdentifier.register(GlobalConfig.getApplicationContext() as Application)
         dismiss()
         if (onPolicyClickListener != null) {

@@ -5,7 +5,7 @@ import com.tg.vloan.R
 import com.tg.vloan.base.BaseFragment
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.Constants
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import com.tg.vloan.databinding.FragmentMineBinding
 import com.tg.vloan.ui.activity.*
 import com.tg.vloan.utils.UserUtils
@@ -50,7 +50,8 @@ class MineFragment:BaseFragment<FragmentMineBinding>() {
     }
 
     override fun initData() {
-        var phone = SPConfig.getString(ConfigKeys.SP_PHONE, "")
+        var phone = StorageConfig.getString(ConfigKeys.SP_PHONE, "")
+        binding!!.tvPhone.text = phone
     }
 
     override fun initSubscription() {

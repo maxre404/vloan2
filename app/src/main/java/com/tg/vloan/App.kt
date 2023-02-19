@@ -4,9 +4,10 @@ import android.app.Activity
 import android.app.Application
 import android.os.Bundle
 import com.github.gzuliyujiang.oaid.DeviceIdentifier
+import com.tencent.mmkv.MMKV
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.GlobalConfig
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import java.lang.ref.WeakReference
 
 class App:Application() {
@@ -15,7 +16,8 @@ class App:Application() {
         application=this
         registerActivityLifecycleCallbacks(lifecycleCallbacks)
         GlobalConfig.init(this)
-        if (SPConfig.getBoolean(ConfigKeys.SP_AGREE_POLICY, false)) {
+        MMKV.initialize(this)
+        if (StorageConfig.getBoolean(ConfigKeys.SP_AGREE_POLICY, false)) {
             DeviceIdentifier.register(this)
         }
     }

@@ -12,7 +12,7 @@ import com.tg.vloan.bean.MainConfig
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.Constants
 import com.tg.vloan.config.GlobalConfig
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import com.tg.vloan.databinding.ActivitySplashBinding
 import com.tg.vloan.net.ApiPath
 import com.tg.vloan.ui.dialog.PolicyDialog
@@ -86,7 +86,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         return R.id.status_bar_view
     }
     private fun checkPolicy() {
-        val agreePolicy: Boolean = SPConfig.getBoolean(ConfigKeys.SP_AGREE_POLICY, false)
+        val agreePolicy: Boolean = StorageConfig.getBoolean(ConfigKeys.SP_AGREE_POLICY, false)
         if (!agreePolicy) {
             showAgreePolicyDialog()
         } else {
@@ -95,9 +95,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         }
     }
     private fun getPageType(): Int {
-        val isFirstLaunch = SPConfig.getBoolean(ConfigKeys.SP_FIRST_LAUNCH, true)
+        val isFirstLaunch = StorageConfig.getBoolean(ConfigKeys.SP_FIRST_LAUNCH, true)
         return if (isFirstLaunch) {
-            SPConfig.putBoolean(ConfigKeys.SP_FIRST_LAUNCH, false)
+            StorageConfig.putBoolean(ConfigKeys.SP_FIRST_LAUNCH, false)
             PAGE_GUIDE
         } else if (TextUtils.isEmpty(GlobalConfig.getUserId())) {
             PAGE_LOGIN

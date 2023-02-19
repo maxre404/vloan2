@@ -16,11 +16,10 @@ import com.tg.vloan.callback.SimpleTextWatcher
 import com.tg.vloan.config.ConfigKeys
 import com.tg.vloan.config.Constants
 import com.tg.vloan.config.GlobalConfig
-import com.tg.vloan.config.SPConfig
+import com.tg.vloan.config.StorageConfig
 import com.tg.vloan.databinding.ActivityLoginBinding
 import com.tg.vloan.dto.CodeRequest
 import com.tg.vloan.dto.LoginRequest
-import com.tg.vloan.utils.LogUtil
 import com.tg.vloan.utils.MyCountDownTimer
 import com.tg.vloan.utils.ResourceUtils
 import com.tg.vloan.viewmodel.LoginViewModel
@@ -195,7 +194,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>() {
             if (response.isSuccess){
                 GlobalConfig.setUserId(response.data?.userId)
                 showToast(response.data?.msg)
-                SPConfig.putString(ConfigKeys.SP_PHONE, getPhone())
+                StorageConfig.putString(ConfigKeys.SP_PHONE, getPhone())
                 onLoginSuccess()
             }else{
                 showToast(response.msg)

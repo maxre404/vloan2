@@ -3,7 +3,7 @@ package com.tg.vloan.utils;
 import android.os.Build;
 
 import com.tg.vloan.config.ConfigKeys;
-import com.tg.vloan.config.SPConfig;
+import com.tg.vloan.config.StorageConfig;
 
 import java.net.NetworkInterface;
 import java.net.SocketException;
@@ -22,7 +22,7 @@ public class DeviceIDUtil {
      * @return
      */
     public static String getUniqueDeviceID() {
-        String uuid = SPConfig.getString(ConfigKeys.SP_UUID, null);
+        String uuid = StorageConfig.getString(ConfigKeys.SP_UUID, null);
         if (uuid != null) {
             return uuid;
         }
@@ -46,7 +46,7 @@ public class DeviceIDUtil {
             m_szUniqueID += Integer.toHexString(b);
         }
         m_szUniqueID = m_szUniqueID.toUpperCase();
-        SPConfig.putString(ConfigKeys.SP_UUID, m_szUniqueID);
+        StorageConfig.putString(ConfigKeys.SP_UUID, m_szUniqueID);
         return m_szUniqueID;
     }
 

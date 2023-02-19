@@ -32,18 +32,18 @@ public final class GlobalConfig {
 
     public static void setUserId(String userId) {
         Configurator.getInstance().putConfig(ConfigKeys.SP_USER_ID, userId);
-        SPConfig.putString(ConfigKeys.SP_USER_ID, userId);
+        StorageConfig.putString(ConfigKeys.SP_USER_ID, userId);
     }
 
     public static void clearUserId() {
         Configurator.getInstance().putConfig(ConfigKeys.SP_USER_ID, null);
-        SPConfig.putString(ConfigKeys.SP_USER_ID, null);
+        StorageConfig.putString(ConfigKeys.SP_USER_ID, null);
     }
 
     public static String getUserId() {
         String userId = Configurator.getInstance().getConfig(ConfigKeys.SP_USER_ID);
         if (userId == null) {
-            userId = SPConfig.getString(ConfigKeys.SP_USER_ID, null);
+            userId = StorageConfig.getString(ConfigKeys.SP_USER_ID, null);
         }
         return userId;
     }
